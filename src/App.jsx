@@ -1,34 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+//components
+import Navbar from './components/Navbar/Navbar'
+import Movie from './components/Movie/Movie'
+import Favorites from './components/Favorites/Favorites'
+import TrendingMovie from './components/TrendingMovie/TrendingMovie';
+import Home from './pages/Home';
+import React, { useState, useEffect, useRef, useContext, createContext } from 'react';
+
+export const MainContext = createContext();
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [favoritesMovie, setFavorites] = useState([]);
+  const [movieGridRender, setMovieGridRender] = useState([]);
+  const [totalPage, setTotalPage] = useState(0);
 
+
+  const storedObject = JSON.parse(localStorage.getItem('data'));
+
+  // console.log(storedObject);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <MainContext.Provider value={{favoritesMovie, setFavorites, movieGridRender, setMovieGridRender, totalPage, setTotalPage}}>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route>
+            <Route path="" element={<Home />} />
+            <Route path="movie" element={<Movie />} />
+            <Route path="trendingMovie" element={<TrendingMovie />} />
+
+            <Route path="favorites" element={<Favorites />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </MainContext.Provider>
   )
 }
 
