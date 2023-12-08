@@ -50,6 +50,62 @@
   width: 100%;
 }
 
+.box-search {
+  position: relative;
+	height: 20px;
+	background-color: white;
+	border-radius: 30px;
+	display: flex;
+	align-items: center;
+	padding: 20px 0;
+  padding: 20px 0;
+  z-index: 1;
+}
+
+.box-search > input{
+	flex: 1;
+	height: 40px;
+	border: none;
+	outline: none;
+	font-size: 18px;
+	padding: 30px 120px 30px 30px;
+  color: #0f0f0f;
+}
+
+input {
+  border-radius: 30px;
+  padding: 0.5rem 1.8rem;
+  font-size: 18px;
+  font-weight: 600;
+  position: relative;
+  /* border: 3px solid #fff; */
+  background-color: transparent;
+  color: #fff;
+  box-shadow: unset;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  width: -webkit-fill-available;
+  z-index: 2;
+}
+
+.box-icon-search {
+  position: absolute;
+  right: 30px;
+  z-index: 3;
+}
+
+.FaSearch {
+  color: #0f0f0f;
+  font-size: 24px;
+  margin-left: 30px;
+  z-index: 3;
+}
+
+.FaSyncAlt {
+  color: #0f0f0f;
+  font-size: 24px;
+  z-index: 3;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -71,4 +127,12 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+@media only screen and (max-width: 425px) {
+  /* Adjust button size for smaller screens */
+  input {
+    width: -webkit-fill-available;
+  }
 }

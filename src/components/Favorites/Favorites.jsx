@@ -7,14 +7,14 @@ import HeroSlide from '../HeroSlide/HeroSlide';
 
 function Favorites() {
   const { favoritesMovie, setFavorites } = useContext(MainContext);
-  const storedFavorites = JSON.parse(localStorage.getItem('data')) || [];
+  const storedFavorites = JSON.parse(localStorage.getItem('dataFavorites')) || [];
 
   return (
     <>
       <HeroSlide />
       <div className="container">
         <div className="section mb-3">
-          <MovieGrid favorites={storedFavorites} />
+          <MovieGrid type="favorites" favorites={storedFavorites} />
         </div>
       </div>
     </>

@@ -9,7 +9,7 @@ import TmdbApi, { category } from '../../../api/TmdbApi';
 import ModalVideo from '../../ModalVideo/ModalVideo';
 
 const MovieCard = props => {
-  const storedFavorites = JSON.parse(localStorage.getItem('data')) || [];
+  const storedFavorites = JSON.parse(localStorage.getItem('dataFavorites')) || [];
 
   const item = props.item;
   const link = '/movie/' + item.id;
@@ -25,11 +25,11 @@ const MovieCard = props => {
     if (!storedFavorites.some((fav) => fav.id === id)) {
       const newFavorites = [...storedFavorites, item];
       setFavorites(newFavorites);
-      localStorage.setItem('data', JSON.stringify(newFavorites));
+      localStorage.setItem('dataFavorites', JSON.stringify(newFavorites));
     } else {
       const newFavorites = storedFavorites.filter((fav) => fav.id !== id);
       setFavorites(newFavorites);
-      localStorage.setItem('data', JSON.stringify(newFavorites));
+      localStorage.setItem('dataFavorites', JSON.stringify(newFavorites));
     }
   };
 

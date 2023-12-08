@@ -9,6 +9,7 @@ import Favorites from './components/Favorites/Favorites'
 import TrendingMovie from './components/TrendingMovie/TrendingMovie';
 import Home from './pages/Home';
 import React, { useState, useEffect, useRef, useContext, createContext } from 'react';
+import Footer from './components/Footer/Footer';
 
 export const MainContext = createContext();
 
@@ -16,13 +17,10 @@ function App() {
   const [favoritesMovie, setFavorites] = useState([]);
   const [movieGridRender, setMovieGridRender] = useState([]);
   const [totalPage, setTotalPage] = useState(0);
+  const [searchHistory, setSearchHistory] = useState([]);
 
-
-  const storedObject = JSON.parse(localStorage.getItem('data'));
-
-  // console.log(storedObject);
   return (
-    <MainContext.Provider value={{favoritesMovie, setFavorites, movieGridRender, setMovieGridRender, totalPage, setTotalPage}}>
+    <MainContext.Provider value={{favoritesMovie, setFavorites, movieGridRender, setMovieGridRender, totalPage, setTotalPage, searchHistory, setSearchHistory}}>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -34,6 +32,7 @@ function App() {
             <Route path="favorites" element={<Favorites />} />
           </Route>
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </MainContext.Provider>
   )

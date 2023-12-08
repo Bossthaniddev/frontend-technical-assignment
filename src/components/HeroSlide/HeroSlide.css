@@ -88,7 +88,7 @@
   font-weight: 700;
   line-height: 1;
   text-align: left;
-  margin: 15px 0px;
+  margin: 50px 0px;
 }
 
 .hero-slide-item-content-info .overview {
@@ -126,6 +126,7 @@
 @media only screen and (max-width: 600px) {
   .hero-slide-item-content-info .title {
     font-size: 2.5rem;
+    margin: 15px 0px;
   }
 }
 
@@ -136,6 +137,10 @@
 
   .hero-slide-item-content-info .releaseDate {
     font-size: 16px;
+  }
+
+  .hero-slide-item-content-info .title {
+    margin: 30px 0px;
   }
 
   .hero-slide-item-content-info .overview {

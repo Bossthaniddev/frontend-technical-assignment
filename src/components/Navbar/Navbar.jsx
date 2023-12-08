@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import './Navbar.css'
 import { NavLink } from 'react-router-dom'
+import { movieType } from '../../api/TmdbApi';
 
 function Navbar() {
 
@@ -31,14 +32,14 @@ function Navbar() {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/movie">Movie</NavLink>
+              <NavLink to="/movie" state={movieType.popular}>Movie</NavLink>
             </li>
             <li>
               <NavLink to="/favorites">Favorites</NavLink>
             </li>
           </ul>
         </div>
-        <input type="text" placeholder="Search" />
+        {/* <input type="text" placeholder="Search" /> */}
         <img
           src="src/assets/images/hamburger.png"
           className="menu-icon"

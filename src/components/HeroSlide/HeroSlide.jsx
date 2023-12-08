@@ -34,7 +34,7 @@ function HeroSlide() {
       } finally {
         setTimeout(() => {
           setLoading(false)
-        }, 1000);
+        }, 0);
       }
     }
     getMovies();
@@ -71,7 +71,7 @@ function HeroSlide() {
 }
 
 const HeroSlideItem = props => {
-  const storedFavorites = JSON.parse(localStorage.getItem('data')) || [];
+  const storedFavorites = JSON.parse(localStorage.getItem('dataFavorites')) || [];
   const loading = props.loading;
   const item = props.item;
   const background = ConfigApi.originalImage(item.backdrop_path ? item.backdrop_path : item.poster_path);
@@ -96,11 +96,11 @@ const HeroSlideItem = props => {
     if (!storedFavorites.some((fav) => fav.id === id)) {
       const newFavorites = [...storedFavorites, item];
       setFavorites(newFavorites);
-      localStorage.setItem('data', JSON.stringify(newFavorites));
+      localStorage.setItem('dataFavorites', JSON.stringify(newFavorites));
     } else {
       const newFavorites = storedFavorites.filter((fav) => fav.id !== id);
       setFavorites(newFavorites);
-      localStorage.setItem('data', JSON.stringify(newFavorites));
+      localStorage.setItem('dataFavorites', JSON.stringify(newFavorites));
     }
   };
 

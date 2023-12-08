@@ -31,7 +31,7 @@ const MovieList = props => {
       setItems(response.results);
       setTimeout(() => {
         setLoading(false)
-      }, 1000);
+      }, 0);
     }
     getList();
   }, []);
