@@ -1,5 +1,10 @@
-#npm i
-#npm run dev
+nstallation:
+
+npm install
+
+To Start Server:
+
+npm run dev
 
 # React + Vite
 
